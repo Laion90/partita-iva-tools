@@ -1,7 +1,0 @@
-title: Partita IVA Tools
-description: "Risorse e comparatori per gestire la fatturazione elettronica"
-baseurl: ""          
-url: "https://Laion90.github.io/partita-iva-tools"
-theme: minima         
-plugins:
-  - jekyll-feed
