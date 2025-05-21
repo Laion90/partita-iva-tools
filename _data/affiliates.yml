@@ -1,0 +1,6 @@
+fatture-in-cloud:
+  url: "https://partners.fattureincloud.it/track?ref=TUOCODE"
+  label: "Prova Fatture in Cloud gratis"
+qonto:
+  url: "https://tracking.qonto.com/affiliate?ref=TUOCODE"
+  label: "Apri conto Qonto"

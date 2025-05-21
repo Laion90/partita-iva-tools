@@ -1,0 +1,12 @@
+- id: fatture-in-cloud
+  name: "Fatture in Cloud"
+  price: "da 10 €/mese"
+  commission: "25 € CPA"
+  rating: 4.7
+  link: "fatture-in-cloud"
+- id: qonto
+  name: "Qonto"
+  price: "da 9 €/mese"
+  commission: "70 € CPA"
+  rating: 4.5
+  link: "qonto"

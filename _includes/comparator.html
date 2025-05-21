@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Prodotto</th>
+      <th>Prezzo</th>
+      <th>Commissione</th>
+      <th>Valutazione</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in site.data.products %}
+    <tr>
+      <td>{{ p.name }}</td>
+      <td>{{ p.price }}</td>
+      <td>{{ p.commission }}</td>
+      <td>{{ p.rating }}</td>
+      <td>
+        <a class="btn" href="{{ site.data.affiliates[p.link].url }}" target="_blank">
+          Provalo
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
