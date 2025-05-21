@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://Laion90.github.io/partita-iva-tools/sitemap.xml
