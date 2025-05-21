@@ -1,27 +1,90 @@
-<!DOCTYPE html><html lang="it"><head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="index,follow">
-<!-- Plausible -->
-<script defer data-domain="partita-iva-tools" src="https://plausible.io/js/script.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="index,follow">
-<!-- Plausible -->
-<script defer data-domain="partita-iva-tools" src="https://plausible.io/js/script.js"></script>
-<meta charset="utf-8">
-<title>Fatturazione elettronica: guida completa 2025</title>
-<link rel="stylesheet" href="css/style.css">
-<script defer src="js/comparator.js"></script>
-</head><body>
-<a href="index.html">← Home</a>
-<h1>Fatturazione elettronica: guida completa e strumenti migliori 2025</h1>
+cat > guida-fatturazione-elettronica.html <<'EOF'
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <title>Fatturazione elettronica: guida completa 2025</title>
+  <meta name="description" content="Normativa, vantaggi e migliori software di fatturazione elettronica per Partite IVA.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="assets/img/favicon.png">
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+  <!-- Plausible -->
+  <script defer data-domain="partita-iva-tools" src="https://plausible.io/js/script.js"></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body class="bg-white dark:bg-zinc-900 dark:text-zinc-100 font-sans">
 
-<p>Qui spieghi cos'è la fatturazione elettronica, gli obblighi, i vantaggi e i criteri di scelta del software.</p>
+<!-- Header -->
+<header class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur sticky top-0 z-50 shadow-sm">
+  <div class="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
+    <a href="index.html" class="text-xl font-bold text-indigo-600">Partita IVA Tools</a>
+    <nav class="hidden md:flex gap-6 text-sm">
+      <a href="index.html#blog" class="hover:text-indigo-600">Blog</a>
+      <a href="index.html#comparatore" class="hover:text-indigo-600">Comparatori</a>
+    </nav>
+    <button id="themeToggle" class="p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800">🌙</button>
+  </div>
+</header>
 
-<h2>I migliori software per gestire la fatturazione elettronica</h2>
-<table>
-<thead><tr>
-  <th>Prodotto</th><th>Prezzo</th><th>Commissione</th><th>Valutazione</th><th></th>
-</tr></thead>
-<tbody id="products-body"></tbody>
-</table>
-</body></html>
+<!-- Hero section -->
+<section class="bg-gradient-to-br from-indigo-600 to-purple-600 text-white">
+  <div class="max-w-4xl mx-auto py-20 px-4 text-center" data-aos="fade-up">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Fatturazione elettronica: guida completa 2025</h1>
+    <p class="text-lg md:text-xl">Norme, vantaggi e confronto dei migliori tool per professionisti e PMI.</p>
+  </div>
+</section>
+
+<!-- Contenuto -->
+<main class="max-w-3xl mx-auto py-16 px-4 space-y-8">
+  <section data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-4">Cos’è la fatturazione elettronica</h2>
+    <p class="leading-relaxed">[Inserisci spiegazione normativa, obblighi e vantaggi…]</p>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-4">Come funziona il processo</h2>
+    <ol class="list-decimal list-inside space-y-1">
+      <li>Emissione</li>
+      <li>Invio a SDI</li>
+      <li>Conservazione digitale</li>
+    </ol>
+  </section>
+
+  <!-- Comparatore -->
+  <section id="comparatore" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-4">I migliori software di fatturazione</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead>
+          <tr class="text-left bg-zinc-100 dark:bg-zinc-700">
+            <th class="py-2 px-3">Prodotto</th>
+            <th class="py-2 px-3">Prezzo</th>
+            <th class="py-2 px-3">Commissione</th>
+            <th class="py-2 px-3">Rating</th>
+            <th class="py-2 px-3"></th>
+          </tr>
+        </thead>
+        <tbody id="products-body" class="bg-white dark:bg-zinc-900"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-zinc-900 text-zinc-400 text-sm py-10">
+  <div class="max-w-6xl mx-auto px-4">
+    <p class="mb-2">© 2025 Partita IVA Tools – Tutti i diritti riservati.</p>
+    <p class="mb-2">I link presenti sul sito sono link di affiliazione: potremmo ricevere una commissione se effettui un acquisto o una registrazione.</p>
+    <a href="#" class="underline hover:text-white">Informativa privacy</a>
+  </div>
+</footer>
+
+<script>loadProducts();</script>
+</body>
+</html>
+EOF
