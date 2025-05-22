@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html lang="it" class="scroll-smooth">
-<!-- sostituisci il blocco <head> con: -->
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
   <title>Partita IVA Tools</title>
-  <meta name="description" content="Guide, comparatori e offerte per professionisti e PMI">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index,follow">
-  <link rel="icon" href="assets/img/favicon.png">
+  <meta name="description" content="Guide, comparatori e offerte per professionisti e PMI"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+
+  <!-- Tailwind CDN + Typography plugin -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={plugins:[window.tailwindTypography]}</script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5/dist/typography.min.js"></script>
-  <link  href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- AOS (scroll animation) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+
+  <!-- Analytics -->
   <script defer data-domain="partita-iva-tools" src="https://plausible.io/js/script.js"></script>
-  <script src="assets/js/main.js"   defer></script>
+
+  <!-- Custom assets -->
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <script src="assets/js/main.js"    defer></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="assets/js/markdown.js" defer></script>
-  <script src="assets/js/posts.js"  defer></script>
+  <script src="assets/js/posts.js"   defer></script>
 </head>
+
 <body class="bg-white dark:bg-zinc-900 dark:text-zinc-100 font-sans">
 
+<!-- Header ----------------------------------------------------------- -->
 <header class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur sticky top-0 z-50 shadow-sm">
   <div class="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
     <a href="index.html" class="text-xl font-bold text-indigo-600">Partita IVA Tools</a>
     <nav class="hidden md:flex gap-6 text-sm">
-      <a href="#blog" class="hover:text-indigo-600">Blog</a>
+      <a href="#blog"        class="hover:text-indigo-600">Blog</a>
       <a href="#comparatore" class="hover:text-indigo-600">Comparatori</a>
     </nav>
     <button id="themeToggle" class="p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800">🌙</button>
   </div>
 </header>
 
+<!-- Hero ------------------------------------------------------------- -->
 <section class="bg-gradient-to-br from-indigo-600 to-purple-600 text-white">
   <div class="max-w-6xl mx-auto py-24 px-4 text-center" data-aos="fade-up">
     <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Strumenti smart per la tua Partita IVA</h1>
     <p class="text-lg md:text-xl mb-8">Guide pratiche e comparatori per fatturazione, preventivi e gestione clienti.</p>
-    <a href="#comparatore" class="inline-block bg-white text-indigo-700 font-medium px-6 py-3 rounded shadow hover:-translate-y-1 transition">Scopri i software consigliati</a>
+    <a href="#comparatore"
+       class="inline-block bg-white text-indigo-700 font-medium px-6 py-3 rounded shadow hover:-translate-y-1 transition">
+       Scopri i software consigliati
+    </a>
   </div>
 </section>
 
-<!-- Blog dinamico -->
+<!-- Blog dinamico ---------------------------------------------------- -->
 <section id="blog" class="max-w-6xl mx-auto py-16 px-4">
   <h2 class="text-3xl font-bold mb-8">Ultime guide</h2>
   <div id="cards-container" class="grid md:grid-cols-3 gap-8"></div>
 </section>
 
-<!-- Comparatore -->
+<!-- Comparatore ------------------------------------------------------ -->
 <section id="comparatore" class="bg-zinc-50 dark:bg-zinc-800 py-16">
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold mb-8 text-center">Comparatore software fatturazione</h2>
@@ -67,6 +81,7 @@
   </div>
 </section>
 
+<!-- Footer ----------------------------------------------------------- -->
 <footer class="bg-zinc-900 text-zinc-400 text-sm py-10">
   <div class="max-w-6xl mx-auto px-4">
     <p class="mb-2">© 2025 Partita IVA Tools – Tutti i diritti riservati.</p>
@@ -75,6 +90,7 @@
   </div>
 </footer>
 
-<script>loadProducts(); /* dal vecchio main.js */</script>
+<!-- Avvia comparatore -->
+<script>loadProducts();</script>
 </body>
 </html>

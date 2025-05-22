@@ -8,35 +8,37 @@ PROMPT=$(cat <<EOT
 Scrivi un articolo SEO di 1500 parole in italiano.
 Titolo: "$TITLE"
 Struttura: introduzione, 3-5 sezioni con H2, conclusione.
-Tono professionale. Formatta in Markdown (##, ###, liste).
+Tono professionale. Formatta strettamente in Markdown (##, ###, liste, tabelle).
 EOT
 )
 
 JSON=$(jq -n --arg model deepseek-chat --arg content "$PROMPT" \
-      '{model:$model,messages:[{role:"user",content:$content}]}')
+      '{model:$model,messages:[{role:"user",content:$content}]}' )
 CONTENT=$(curl -s https://api.deepseek.com/v1/chat/completions \
-  -H "Authorization: Bearer $DEEPSEEK_API_KEY" -H "Content-Type: application/json" \
-  -d "$JSON" | jq -r '.choices[0].message.content')
+  -H "Authorization: Bearer $DEEPSEEK_API_KEY" \
+  -H "Content-Type: application/json" -d "$JSON" | jq -r '.choices[0].message.content')
 
-# ---- HEAD ------------------------------------------------------------------
+# --------------------- HEAD -------------------------------------------------
 HEAD=$(cat <<'H'
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index,follow">
 <link rel="icon" href="assets/img/favicon.png">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={plugins:[window.tailwindTypography]}</script>
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5/dist/typography.min.js"></script>
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script>
+  tailwind.config={plugins:[window.tailwindTypography]}
+</script>
+<link  href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 <script defer data-domain="partita-iva-tools" src="https://plausible.io/js/script.js"></script>
-<script src="assets/js/main.js"   defer></script>
+<link rel="stylesheet" href="assets/css/blog.css">
+<script src="assets/js/main.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="assets/js/markdown.js" defer></script>
 H
 )
 
-# ---- HTML ------------------------------------------------------------------
+# --------------------- HTML -------------------------------------------------
 cat > "${SLUG}.html" <<EOF
 <!DOCTYPE html><html lang="it" class="scroll-smooth">
 <head><title>$TITLE</title><meta name="description" content="$TITLE">$HEAD</head>
@@ -52,16 +54,14 @@ cat > "${SLUG}.html" <<EOF
   </div>
 </header>
 
-<section class="max-w-3xl mx-auto py-16 px-4" data-aos="fade-up">
-  <div class="markdown">
-$CONTENT
-  </div>
+<section class="max-w-7xl mx-auto py-16 px-4" data-aos="fade-up">
+  <div class="markdown">$CONTENT</div>
 </section>
 
 <footer class="bg-zinc-900 text-zinc-400 text-sm py-10">
   <div class="max-w-6xl mx-auto px-4">
     <p>© 2025 Partita IVA Tools – Tutti i diritti riservati.</p>
-    <p>I link presenti sul sito sono link di affiliazione: potremmo ricevere una commissione.</p>
+    <p>I link presenti sul sito sono link di affiliazione.</p>
   </div>
 </footer>
 </body></html>

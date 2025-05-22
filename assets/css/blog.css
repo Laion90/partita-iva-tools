@@ -1,0 +1,4 @@
+.article-body{
+  @apply prose lg:prose-xl mx-auto dark:prose-invert
+         prose-headings:scroll-mt-24 prose-img:rounded-xl;
+}
