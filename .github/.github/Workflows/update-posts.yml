@@ -1,0 +1,30 @@
+name: refresh-posts
+
+on:
+  push:
+    paths:
+      - '**/*.html'
+      - 'scripts/gen_posts_json.sh'
+  schedule:
+    - cron:  '0 4 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: sudo apt-get update && sudo apt-get install -y jq moreutils
+      - run: scripts/gen_posts_json.sh
+      - name: Commit & push if changed
+        run: |
+          git config --global user.name  "posts-bot"
+          git config --global user.email "bot@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes"
+          else
+            git add data/posts.json
+            git commit -m "Auto-update posts.json"
+            git push
+          fi
